@@ -41,21 +41,20 @@ class Game extends Component {
         st.locked[i] ? d : Math.ceil(Math.random() * 6),
       ),
       locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
-      rollsLeft: st.rollsLeft - 1,
+      rollsLeft: st.rollsLeft > 0 ? st.rollsLeft - 1 : 0,
     }));
   }
 
   toggleLocked(idx) {
-    // toggle whether idx is in locked or not
-    ///idx?
-    console.log(idx);
-    this.setState((st) => ({
-      locked: [
-        ...st.locked.slice(0, idx),
-        !st.locked[idx],
-        ...st.locked.slice(idx + 1),
-      ],
-    }));
+    if (this.state.rollsLeft > 0) {
+      this.setState((st) => ({
+        locked: [
+          ...st.locked.slice(0, idx),
+          !st.locked[idx],
+          ...st.locked.slice(idx + 1),
+        ],
+      }));
+    }
   }
 
   doScore(rulename, ruleFn) {

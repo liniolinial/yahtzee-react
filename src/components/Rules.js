@@ -75,11 +75,23 @@ class FullHouse extends Rule {
 
 /** Check for small straights. */
 
+///meine Antwort -> falsch
+// class SmallStraight extends Rule {
+//   // TODO:  30 points provided four of the dice have consecutive values; zero otherwise.
+//   evalRoll = (dice) => {
+//     return this.freq(dice)[0] <= 2 ? this.score : 0;
+//   };
+// }
+//andere Methode
 class SmallStraight extends Rule {
-  // TODO:  30 points provided four of the dice have consecutive values; zero otherwise.
   evalRoll = (dice) => {
     const d = new Set(dice);
-    return this.freq(dice)[0] <= 2 ? this.score : 0;
+    ///set: filter gleiche Zahl
+    if (d.has(2) && d.has(3) && d.has(4) && (d.has(1) || d.has(5)))
+      return this.score;
+    if (d.has(3) && d.has(4) && d.has(5) && (d.has(2) || d.has(6)))
+      return this.score;
+    return 0;
   };
 }
 

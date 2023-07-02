@@ -9,6 +9,8 @@ class Die extends Component {
 
   handleClick(e) {
     this.props.handleClick(this.props.idx);
+
+    // this.props.handleClick(this.props.idx);
   }
 
   render() {
