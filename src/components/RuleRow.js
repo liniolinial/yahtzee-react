@@ -11,8 +11,7 @@ class RuleRow extends Component {
         className={`RuleRow RuleRow-${disabled ? "disabled" : "active"}`}
         onClick={disabled ? null : doScore}>
         <td className='RuleRow-name'>{name}</td>
-        <td className='RuleRow-description'>{disabled ? null : description}</td>
-        <td className='RuleRow-score'>{score}</td>
+        <td className='RuleRow-score'>{disabled ? score : description}</td>
       </tr>
     );
   }
