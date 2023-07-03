@@ -1,8 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+// import "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import registerServiceWorker from "./registerServiceWorker";
+
+ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();
